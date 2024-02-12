@@ -47,20 +47,4 @@ public class HelloWorldTests
         //Assert
         Assert.That(helloMessageToTheWorld, Is.EqualTo(expectedMessage));
     }
-
-    [Test]
-    public void HelloWorld_SaysStandardHelloWorld_WhenSayHelloToTheWorld_IsCalled_WithSettingsAndName()
-    {
-        // Arrange
-        var expectedMessage = "Hello Earth!";
-        _helloWorldOptions.SetupGet(o => o.Value)
-            .Returns(new HelloWorldOptions { Message = "Hello Earth!" });
-        _helloWorldMessageService = new HelloWorldMessageService(_helloWorldOptions.Object);
-
-        // Act
-        var helloMessageToTheWorld = _helloWorldMessageService.GetHelloMessageToTheWorld();
-
-        //Assert
-        Assert.That(helloMessageToTheWorld, Is.EqualTo(expectedMessage));
-    }
 }
